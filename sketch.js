@@ -12,8 +12,8 @@ var closebtn;
 
 function setup(){
   createCanvas(800,720);
-  b1x = 50;
-  b1y = 50;
+  b1x = 70;
+  b1y = 70;
 
   btxLo = 100;
   btyLo = 600;
@@ -24,8 +24,8 @@ function setup(){
   popxLo = 100;
   popyLo = 100;
 
-  closeX = 50;
-  closeY = 50;
+  closeX = 70;
+  closeY = 70;
 
 }
 
@@ -125,7 +125,7 @@ function draw(){
       btn6 = rect(btxLo+500, btyLo, b1x, b1y);
       popup = rect(popxLo, popyLo, popx, popy);
       closebtn = rect(popxLo + popx - 50, popyLo, 50, 50);
-    } //show the popup4
+    } //show the popup5
 
     if(page == 6){
       btn1 = rect(btxLo, btyLo, b1x, b1y);
@@ -136,7 +136,7 @@ function draw(){
       btn6 = rect(btxLo+500, btyLo, b1x, b1y);
       popup = rect(popxLo, popyLo, popx, popy);
       closebtn = rect(popxLo + popx - 50, popyLo, 50, 50);
-    } //show the popup4
+    } //show the popup6
 
 
     if(mouseIsPressed && popxLo + popx - 50 < mouseX  && mouseX < popxLo + popx
