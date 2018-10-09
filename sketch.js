@@ -8,12 +8,21 @@ var popxLo, popyLo;
 var closeX, closeY;
 var closebtn;
 
+let myMap;
+let canvas;
+const mappa = new Mappa('Leaflet');
+const options = {
+lat: 37.6571305,
+lng: -122.057391,
+zoom: 14,
+style: "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+}
 
 
 function setup(){
-  createCanvas(800,720);
-  b1x = 50;
-  b1y = 50;
+  canvas = createCanvas(800,720);
+  b1x = 70;
+  b1y = 70;
 
   btxLo = 100;
   btyLo = 600;
@@ -24,25 +33,44 @@ function setup(){
   popxLo = 100;
   popyLo = 100;
 
-  closeX = 50;
-  closeY = 50;
+  closeX = 70;
+  closeY = 70;
 
+
+
+  myMap = mappa.tileMap(options);
+  myMap.overlay(canvas)
+
+  fill(255);
+  rect(0, 600, 800, 720);
+
+
+  // Add a color to our ellipse
 }
 
 function draw(){
-  background(200);
 
+  clear();
+  noStroke();
+  fill(200);
+  rect(0, 550, 800, 720);
+  fill(255);
+  const nigeria = myMap.latLngToPixel(37.6571305, -122.057391);
+  btn1 = rect(btxLo, btyLo, b1x, b1y);
+  btn2 = rect(btxLo+100, btyLo, b1x, b1y);
+  btn3 = rect(btxLo+200, btyLo, b1x, b1y);
+  btn4 = rect(btxLo+300, btyLo, b1x, b1y);
+  btn5 = rect(btxLo+400, btyLo, b1x, b1y);
+  btn6 = rect(btxLo+500, btyLo, b1x, b1y);
+
+//Welcome page - pick driver and passengers
     if (page == 0){
-      btn1 = rect(btxLo, btyLo, b1x, b1y);
-      btn2 = rect(btxLo+100, btyLo, b1x, b1y);
-      btn3 = rect(btxLo+200, btyLo, b1x, b1y);
-      btn4 = rect(btxLo+300, btyLo, b1x, b1y);
-      btn5 = rect(btxLo+400, btyLo, b1x, b1y);
-      btn6 = rect(btxLo+500, btyLo, b1x, b1y);
+
 
     }    //back to main
 
     if (mouseIsPressed && mouseX > btxLo && mouseX < btxLo+b1x && mouseY > btyLo && mouseY < btyLo+b1y){
+
       btn1 = rect(btxLo, btyLo, b1x, b1y);
       page = 1;
     } //click button1 for the popup
@@ -72,71 +100,40 @@ function draw(){
       page = 6;
     } //click button5 for the popup
 
+    //Navigation - pick up/go to school
     if(page == 1){
-      btn1 = rect(btxLo, btyLo, b1x, b1y);
-      btn2 = rect(btxLo+100, btyLo, b1x, b1y);
-      btn3 = rect(btxLo+200, btyLo, b1x, b1y);
-      btn4 = rect(btxLo+300, btyLo, b1x, b1y);
-      btn5 = rect(btxLo+400, btyLo, b1x, b1y);
-      btn6 = rect(btxLo+500, btyLo, b1x, b1y);
       popup = rect(popxLo, popyLo, popx, popy);
       closebtn = rect(popxLo + popx - 50, popyLo, 50, 50);
     } //show the popup1
 
+    //Temperature - show current temperature and on right side have option to turn on AC/heat in trunk
     if(page == 2){
-      btn1 = rect(btxLo, btyLo, b1x, b1y);
-      btn2 = rect(btxLo+100, btyLo, b1x, b1y);
-      btn3 = rect(btxLo+200, btyLo, b1x, b1y);
-      btn4 = rect(btxLo+300, btyLo, b1x, b1y);
-      btn5 = rect(btxLo+400, btyLo, b1x, b1y);
-      btn6 = rect(btxLo+500, btyLo, b1x, b1y);
       popup = rect(popxLo, popyLo, popx, popy);
       closebtn = rect(popxLo + popx - 50, popyLo, 50, 50);
     } //show the popup2
 
+    //Temp Up and down - effect a number
     if(page == 3){
-      btn1 = rect(btxLo, btyLo, b1x, b1y);
-      btn2 = rect(btxLo+100, btyLo, b1x, b1y);
-      btn3 = rect(btxLo+200, btyLo, b1x, b1y);
-      btn4 = rect(btxLo+300, btyLo, b1x, b1y);
-      btn5 = rect(btxLo+400, btyLo, b1x, b1y);
-      btn6 = rect(btxLo+500, btyLo, b1x, b1y);
       popup = rect(popxLo, popyLo, popx, popy);
       closebtn = rect(popxLo + popx - 50, popyLo, 50, 50);
     } //show the popup3
 
+    //Music - show playlists and volume on the side
     if(page == 4){
-      btn1 = rect(btxLo, btyLo, b1x, b1y);
-      btn2 = rect(btxLo+100, btyLo, b1x, b1y);
-      btn3 = rect(btxLo+200, btyLo, b1x, b1y);
-      btn4 = rect(btxLo+300, btyLo, b1x, b1y);
-      btn5 = rect(btxLo+400, btyLo, b1x, b1y);
-      btn6 = rect(btxLo+500, btyLo, b1x, b1y);
       popup = rect(popxLo, popyLo, popx, popy);
       closebtn = rect(popxLo + popx - 50, popyLo, 50, 50);
     } //show the popup4
 
+    //Volume up and down - effects a number
     if(page == 5){
-      btn1 = rect(btxLo, btyLo, b1x, b1y);
-      btn2 = rect(btxLo+100, btyLo, b1x, b1y);
-      btn3 = rect(btxLo+200, btyLo, b1x, b1y);
-      btn4 = rect(btxLo+300, btyLo, b1x, b1y);
-      btn5 = rect(btxLo+400, btyLo, b1x, b1y);
-      btn6 = rect(btxLo+500, btyLo, b1x, b1y);
       popup = rect(popxLo, popyLo, popx, popy);
       closebtn = rect(popxLo + popx - 50, popyLo, 50, 50);
-    } //show the popup4
+    } //show the popup5
 
     if(page == 6){
-      btn1 = rect(btxLo, btyLo, b1x, b1y);
-      btn2 = rect(btxLo+100, btyLo, b1x, b1y);
-      btn3 = rect(btxLo+200, btyLo, b1x, b1y);
-      btn4 = rect(btxLo+300, btyLo, b1x, b1y);
-      btn5 = rect(btxLo+400, btyLo, b1x, b1y);
-      btn6 = rect(btxLo+500, btyLo, b1x, b1y);
       popup = rect(popxLo, popyLo, popx, popy);
       closebtn = rect(popxLo + popx - 50, popyLo, 50, 50);
-    } //show the popup4
+    } //show the popup6
 
 
     if(mouseIsPressed && popxLo + popx - 50 < mouseX  && mouseX < popxLo + popx
