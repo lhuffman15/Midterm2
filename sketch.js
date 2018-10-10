@@ -525,11 +525,11 @@ function draw(){
       image(msBubble, 377, 40);
       fill(0);
       textSize(20);
-      text("Mom, I am front of the gate!", 410, 100);
+      text("Mom, I am front in of the gate!", 410, 100);
       //moms message
       image(msBubble2, 30, 100);
       text("Okay, I will be there", 60, 140);
-      text("in 20minutes.", 60, 175);
+      text("in 20 minutes.", 60, 175);
       //status bar
       fill(255);
       drawingContext.shadowOffsetY = -2;
@@ -540,7 +540,7 @@ function draw(){
       drawingContext.shadowOffsetY = 0;
       //Time remained
       fill(0);
-      text("20 minutes remained", 556, 510);
+      text("20 minutes remaining", 556, 510);
       fill(255);
       //send message button
       drawingContext.shadowBlur =5;
