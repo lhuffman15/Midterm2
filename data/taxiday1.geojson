@@ -1,0 +1,33 @@
+{
+  "type": "FeatureCollection",
+  "features": [{
+    "type": "Feature",
+    "properties": {
+      "medallion": "21B98CAC5B31414B9446D381D38EEC7F",
+      "passengers": "3",
+      "fare":"18",
+      "paymenttype":"CSH",
+      "surcharge":"0.5",
+      "mtatax":"0.5",
+      "tip":"0",
+      "tolls":"0",
+      "total":"19",
+      "pickuptime":"5/30/13 0:01",
+      "dropofftime":"5/30/13 0:18",
+      "nextpickuptime":"5/30/13 1:45",
+      "key":"0",
+      "hasfare":true
+      },
+    "geometry": {
+      "type": "LineString",
+      "coordinates":[
+        [-74.00232,40.73447],
+        [-74.0024,40.73433],
+        [-74.00278,40.7337],
+
+      ]
+    }
+  }
+  
+  ]
+}
